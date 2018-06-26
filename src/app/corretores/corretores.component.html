@@ -1,0 +1,28 @@
+<div class="container" style="margin: 10px">
+
+ <div class="row">
+    <div id="cardCorretor" *ngFor="let c of corretor" class="card offset-md-1 col-md-5" style="width: 18rem;">
+      <div class="row">
+        <img class="img-fluid card-img-top img-thumbnail col-md-3" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR81Q8g-WHMjx6rd3M6gB1qyiemJeZHPa-QchkXDG2LaPOdCeXU">
+        <div class="col-md-9">
+          <p>Nome: <span>{{c.nome}}</span></p>
+          <p>Email: <span>{{c.email}}</span></p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-8">
+            <label>Classificação</label>
+            <div class="progress">
+              <div class="progress-bar bg-success" role="progressbar" style="width: 75%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="50">4/5</div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <a href="#" class="center btn btn-dark offset-md-4 col-md-4 ">Ver perfil</a>
+        </div>
+      </div>
+    </div>
+</div>
+</div>
