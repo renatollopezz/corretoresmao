@@ -2,16 +2,21 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router'
+import { FormsModule } from '@angular/forms';
 //INIT
 import { AppComponent } from './app.component';
-//CLIENTES
-import { ClientesComponent } from './clientes/clientes.component';
 //CORRETOR
 import { CorretoresComponent } from './corretores/corretores.component';
 import { CorretoresService } from './corretores/corretores.service';
 import { CorretorManterService } from './corretores/corretor-manter/corretor-manter.service';
 import { CorretorManterComponent } from './corretores/corretor-manter/corretor-manter.component';
-//SERVICOS
+
+//CLIENTES
+import { ClienteManterComponent } from './clientes/cliente-manter/cliente-manter.component';
+import { ClientesComponent } from './clientes/clientes.component';
+import {ClienteManterService } from './clientes/cliente-manter/cliente-manter.service';
+//CADASTRO
+import { CadastroComponent } from './cadastro/cadastro.component';
 
 @NgModule({
   declarations: [
@@ -19,17 +24,20 @@ import { CorretorManterComponent } from './corretores/corretor-manter/corretor-m
     ClientesComponent,
     CorretoresComponent,
     CorretorManterComponent,
+    CadastroComponent,
+    ClienteManterComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot([
       {
         path: 'corretores',
         component: CorretoresComponent
       },
       {
-        path: 'clientes',
+        path: 'perfil',
         component: ClientesComponent
       },
       {
@@ -37,11 +45,21 @@ import { CorretorManterComponent } from './corretores/corretor-manter/corretor-m
         component: CorretorManterComponent
 
       },
+      {
+        path: 'cadastro',
+        component: CadastroComponent
+
+      },
+      {
+        path: 'cliente',
+        component: ClienteManterComponent
+
+      },
 
     ])
 
   ],
-  providers: [CorretoresService,CorretorManterService],
+  providers: [CorretoresService,CorretorManterService,ClienteManterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

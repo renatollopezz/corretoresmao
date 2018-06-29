@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CorretorManterService } from './corretor-manter.service';
+import { FormGroup } from "@angular/forms";
 @Component({
   selector: 'app-corretor-manter',
   templateUrl: './corretor-manter.component.html',
@@ -9,7 +10,12 @@ export class CorretorManterComponent implements OnInit {
 
   constructor(private corretorManterService: CorretorManterService) { }
   servicos: Array<any>;
+  retornoSalvar: {};
+  corretor: any;
+  mostrarAlerta: any;
   ngOnInit() {
+    this.mostrarAlerta = false;
+      this.corretor = {};
       this.listarServicos();
   }
 
@@ -17,7 +23,32 @@ export class CorretorManterComponent implements OnInit {
     this.corretorManterService.listar().subscribe(dados => this.servicos =  dados.data)
   }
 
-  salvarCorretor(){
-    this.corretorManterService.salvar();
+  salvarCorretor(frm : FormGroup){
+    //return this.corretorManterService.salvar().
+    //subscribe(result => {this.retornoSalvar = result},
+      //                  error =>{error.error});
+
+      this.corretorManterService.save(this.corretor).subscribe(
+        resposta =>{
+          if(resposta.status){
+            this.retornoSalvar = resposta.message;
+          }else{
+            let erro = {msg: "Ocorreu algum erro ao tentar salvar, verifique os campos informados!"}
+            this.retornoSalvar = erro.msg;
+          }
+            console.log(resposta);
+            this.mostrarAlerta = true;
+            this.corretor = {}
+            this.limparCampos();
+        },
+        error =>{
+
+
+        }
+    );
+  }
+
+  limparCampos(){
+    this.corretor = {};
   }
 }

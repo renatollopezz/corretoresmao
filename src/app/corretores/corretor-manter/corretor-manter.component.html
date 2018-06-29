@@ -1,17 +1,28 @@
 <div class="container">
-<h1>Dados do Corretor</h1>
+<form  method="post" #frm="ngForm" (ngSubmit)="salvarCorretor(frm)">
+
+<div class="row">
+  <div class="col-md-8">
+    <h1>Dados do Corretor</h1>
+  </div>
+  <div *ngIf="mostrarAlerta"class="col-md-4">
+    <div class="alert alert-success">
+        <p>{{retornoSalvar}}</p>
+    </div>
+  </div>
+</div>
 <hr>
 <div class="row">
   <div class="col-md-8">
     <label>Nome Completo</label>
     <div class="input-group mb-3">
-      <input name="nome" type="text" class="form-control" placeholder="Nome">
+      <input  required [(ngModel)]="corretor.nome" name="nome" type="text" class="form-control" placeholder="Nome">
     </div>
   </div>
   <div class="col-md-4">
     <label>CPF</label>
     <div class="input-group mb-3">
-      <input name="cpf" type="text" class="form-control" placeholder="CPF">
+      <input required [(ngModel)]="corretor.cpf" name="cpf" type="text" class="form-control" placeholder="CPF">
     </div>
   </div>
 </div>
@@ -19,13 +30,13 @@
   <div class="col-md-8">
     <label>Email</label>
     <div class="input-group mb-3">
-      <input name="email" type="email" class="form-control" placeholder="Email">
+      <input required [(ngModel)]="corretor.email" name="email" type="email" class="form-control" placeholder="Email">
     </div>
   </div>
   <div class="col-md-4">
     <label>CRECI</label>
     <div class="input-group mb-3">
-      <input name="creci" type="text" class="form-control" placeholder="CRECI">
+      <input required [(ngModel)]="corretor.creci" name="creci" type="text" class="form-control" placeholder="CRECI">
     </div>
   </div>
 </div>
@@ -33,25 +44,25 @@
   <div class="col-md-2">
     <label>DDD</label>
     <div class="input-group mb-3">
-      <input name="ddd" type="number" class="form-control" placeholder="DDD">
+      <input required [(ngModel)]="corretor.ddd" name="ddd" type="number" class="form-control" placeholder="DDD">
     </div>
   </div>
   <div class="col-md-3">
     <label>Celular</label>
     <div class="input-group mb-3">
-      <input name="numeroCelular" type="text" class="form-control" placeholder="Celular">
+      <input required [(ngModel)]="corretor.celular" name="celular" type="text" class="form-control" placeholder="Celular">
     </div>
   </div>
   <div class="col-md-3">
     <label>Nascimento</label>
     <div class="input-group mb-3">
-      <input name="dataNascimento" type="date" class="form-control" placeholder="Data de nascimento">
+      <input required [(ngModel)]="corretor.data_nascimento"  name="data_nascimento" type="date" class="form-control" placeholder="Data de nascimento">
     </div>
   </div>
   <div class="col-md-4">
     <label>CEP</label>
     <div class="input-group mb-3">
-      <input name="cep" type="text" class="form-control" placeholder="CEP">
+      <input [(ngModel)]="corretor.cep" name="cep" type="text" class="form-control" placeholder="CEP">
     </div>
   </div>
 </div>
@@ -59,53 +70,71 @@
   <div class="col-md-2">
     <label>Numero</label>
     <div class="input-group mb-3">
-      <input name="numeroCasa" type="text" class="form-control" placeholder="Numero">
+      <input [(ngModel)]="corretor.numero" name="numero" type="text" class="form-control" placeholder="Numero">
     </div>
   </div>
   <div class="col-md-3">
     <label>Bairro</label>
     <div class="input-group mb-3">
-      <input name="bairro" type="text" class="form-control" placeholder="Bairro">
+      <input [(ngModel)]="corretor.bairro"  name="bairro" type="text" class="form-control" placeholder="Bairro">
     </div>
   </div>
   <div class="col-md-3">
     <label>Estado</label>
     <div class="input-group mb-3">
-      <input name="estado" type="text" class="form-control" placeholder="Estado">
+      <input [(ngModel)]="corretor.estado" name="estado" type="text" class="form-control" placeholder="Estado">
     </div>
   </div>
   <div class="col-md-4">
     <label>Cidade</label>
     <div class="input-group mb-3">
-      <input name="cidade" type="text" class="form-control" placeholder="Cidade">
+      <input [(ngModel)]="corretor.cidade" name="cidade" type="text" class="form-control" placeholder="Cidade">
     </div>
   </div>
 </div>
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-8">
+    <label>Logradouro</label>
+    <div class="input-group mb-3">
+      <input [(ngModel)]="corretor.logradouro" name="logradouro" type="text" class="form-control" placeholder="Logradouro">
+    </div>
+  </div>
+  <div class="col-md-4">
     <label>Complemento</label>
     <div class="input-group mb-3">
-      <input name="complemento" type="text" class="form-control" placeholder="Complemento">
+      <input [(ngModel)]="corretor.complemento" name="complemento" type="text" class="form-control" placeholder="Complemento">
     </div>
   </div>
 </div>
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-4">
     <label>Serviço</label>
-    <select class="form-control">
-      <option value="0"></option>
-      <option value= {{s.id}} *ngFor="let s of servicos">{{s.nome}}</option>
+    <select required multiple [(ngModel)]="corretor.servico_id" name="servico_id[]" class="form-control">
+      <option   value= {{s.id}} *ngFor="let s of servicos">{{s.nome}}</option>
     </select>
+</div>
+<div class="col-md-4">
+  <label>Senha</label>
+  <div class="input-group mb-3">
+    <input required [(ngModel)]="corretor.password" name="password" type="password" class="form-control" placeholder="Senha">
+  </div>
+</div>
+<div class="col-md-4">
+  <label>Confirme sua senha</label>
+  <div class="input-group mb-3">
+    <input required [(ngModel)]="corretor.password_confirmation" name="password_confirmation" type="password" class="form-control" placeholder="Confirmar senha">
+  </div>
 </div>
 </div>
 <hr>
 <div class="row">
   <div class="offset-md-8 col-md-4">
     <div class="row">
-      <button type="button" class=" offset-md-1 col-md-3 btn btn-dark btn-sm">Limpar</button>
-      <button routerLink="/corretores" type="button" class=" offset-md-1 col-md-3 btn btn-dark btn-sm">Cancelar</button>
-      <button type="button" (click)="salvarCorretor()" class=" offset-md-1 col-md-3 btn btn-dark btn-sm" >Confirmar</button>
+      <button (click)="limparCampos()" type="button" class=" offset-md-1 col-md-3 btn btn-secondary btn-sm">Limpar</button>
+      <button routerLink="/cadastro" type="button" class=" offset-md-1 col-md-3 btn btn-danger btn-sm">Cancelar</button>
+      <button type="submit" [disabled]="frm.invalid" type="button" (click)="salvarCorretor()" class=" offset-md-1 col-md-3 btn btn-success btn-sm" >Confirmar</button>
     </div>
   </div>
 </div>
+</form>
 </div>

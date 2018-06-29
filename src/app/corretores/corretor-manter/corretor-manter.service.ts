@@ -13,36 +13,45 @@ export class CorretorManterService {
   }
 
   salvar(){
-    const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    let httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json','Access-Control-Allow-Origin': '*','Access-Control-Allow-Headers': 'Authorization' })
     };
 
     let jsonData =
     {
             nome:"Victor",
-            email:"renato@lopes",
-            password:"111",
-            cpf:"020202020",
-            creci:"222233333",
+            email:"renatollopezzfucapi@gmail.com",
+            password:"123456",
+            cpf:"12345678",
+            creci:"12345678",
             data_nascimento:"1999-02-02",
             ddd:"92",
-            celular:"828282",
+            celular:"12345678",
             cidade:"manaus",
             estado:"amazonas",
             logradouro:"rua dallas",
             bairro:"flores",
             numero:"35",
             complemento:"qa",
-            cep:"292929",
+            cep:"12345678",
             tipo:1,
             status:0,
-            servico_id:1
+            servico_id:[1],
+            password_confirmation:"123456"
         };
 
-    var log = this.http.post<any>(`${this.urlCorretor}/salvar`,
+    return this.http.post<any>(`${this.urlCorretor}/salvar`,
             jsonData,httpOptions
-    ).subscribe(result => {
-        console.log(result);
-    });
-}
+    );
+
+  }
+
+  save(contato : any){
+    console.log(contato);
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json','Access-Control-Allow-Origin': '*','Access-Control-Allow-Headers': 'Authorization' })
+    };
+    return this.http.post(`${this.urlCorretor}/salvar`,
+            contato,httpOptions
+  }
 }
