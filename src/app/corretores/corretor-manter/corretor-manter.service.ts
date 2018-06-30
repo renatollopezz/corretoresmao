@@ -52,6 +52,6 @@ export class CorretorManterService {
       headers: new HttpHeaders({ 'Content-Type': 'application/json','Access-Control-Allow-Origin': '*','Access-Control-Allow-Headers': 'Authorization' })
     };
     return this.http.post(`${this.urlCorretor}/salvar`,
-            contato,httpOptions
+            contato,httpOptions)
   }
 }

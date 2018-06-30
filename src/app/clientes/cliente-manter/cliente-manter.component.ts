@@ -23,8 +23,7 @@ export class ClienteManterComponent implements OnInit {
   salvarCliente(frm : FormGroup){
     this.mostrarAlerta = false;
     console.log(this.cliente);
-    this.clienteManterService.salvar(this.cliente).
-      subscribe(resposta => {
+    this.clienteManterService.salvar(this.cliente).subscribe(resposta => {
 
         if(resposta.status){
           this.retornoSalvar = resposta.message;
