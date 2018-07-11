@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ClienteManterService } from './cliente-manter/cliente-manter.service';
 
 @Component({
   selector: 'app-clientes',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./clientes.component.css']
 })
 export class ClientesComponent implements OnInit {
-
-  constructor() { }
+cliente: any
+  constructor(private clienteService : ClienteManterService) { }
 
   ngOnInit() {
+    this.obterClientePeloId();
   }
 
+  obterClientePeloId(){
+    this.clienteService.obterClientePeloId(1).subscribe(dados => this.cliente = dados.data)
+  }
 }

@@ -10,11 +10,14 @@ import { CorretoresComponent } from './corretores/corretores.component';
 import { CorretoresService } from './corretores/corretores.service';
 import { CorretorManterService } from './corretores/corretor-manter/corretor-manter.service';
 import { CorretorManterComponent } from './corretores/corretor-manter/corretor-manter.component';
-
+import { CorretorPerfilComponent } from './corretores/corretor-perfil/corretor-perfil.component';
+import { CorretorServicoComponent } from './corretores/corretor-servico/corretor-servico.component';
 //CLIENTES
 import { ClienteManterComponent } from './clientes/cliente-manter/cliente-manter.component';
 import { ClientesComponent } from './clientes/clientes.component';
-import {ClienteManterService } from './clientes/cliente-manter/cliente-manter.service';
+import { ClienteManterService } from './clientes/cliente-manter/cliente-manter.service';
+import { ClienteServicoComponent } from './clientes/cliente-servico/cliente-servico.component';
+
 //CADASTRO
 import { CadastroComponent } from './cadastro/cadastro.component';
 
@@ -26,6 +29,11 @@ import { CadastroComponent } from './cadastro/cadastro.component';
     CorretorManterComponent,
     CadastroComponent,
     ClienteManterComponent,
+    CorretorPerfilComponent,
+    ClienteServicoComponent,
+    CorretorServicoComponent,
+
+
   ],
   imports: [
     BrowserModule,
@@ -37,7 +45,7 @@ import { CadastroComponent } from './cadastro/cadastro.component';
         component: CorretoresComponent
       },
       {
-        path: 'perfil',
+        path: 'cliente-perfil',
         component: ClientesComponent
       },
       {
@@ -55,7 +63,18 @@ import { CadastroComponent } from './cadastro/cadastro.component';
         component: ClienteManterComponent
 
       },
-
+      {
+        path: 'corretor-perfil',
+        component: CorretorPerfilComponent
+      },
+      {
+          path: 'cliente-servicos',
+          component: ClienteServicoComponent
+      },
+      {
+          path: 'corretor-servicos',
+          component: CorretorServicoComponent
+      }
     ])
 
   ],

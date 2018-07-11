@@ -20,4 +20,8 @@ url = 'http://127.0.0.1:4200/api/cliente';
     return this.http.post(`${this.url}/salvar`,cliente,httpOptions);
   }
 
+  obterClientePeloId(id : any){
+    return this.http.get<any>(`${this.url}/get/`)
+  }
+
 }

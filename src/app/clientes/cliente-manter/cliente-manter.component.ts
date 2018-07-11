@@ -10,7 +10,7 @@ import { FormGroup } from "@angular/forms";
 export class ClienteManterComponent implements OnInit {
   constructor(private clienteManterService: ClienteManterService) { }
 
-  retornoSalvar: {};
+  retornoSalvar: any;;
   cliente: any;
   mostrarAlerta: any;
 
@@ -24,21 +24,13 @@ export class ClienteManterComponent implements OnInit {
     this.mostrarAlerta = false;
     console.log(this.cliente);
     this.clienteManterService.salvar(this.cliente).subscribe(resposta => {
-
-        if(resposta.status){
-          this.retornoSalvar = resposta.message;
-          this.mostrarAlerta = true;
-          this.limparCampos();
-        }else{
-          let erro = {msg: "Ocorreu algum erro ao tentar salvar, verifique os campos informados!"}
-          this.mostrarAlerta = true;
-          this.retornoSalvar = erro.msg;
-        }
+        this.retornoSalvar = resposta;
 
       }, error =>{
           console.log(error);
       });
   }
+
   limparCampos(){
     this.cliente={};
   }

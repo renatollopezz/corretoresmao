@@ -10,7 +10,7 @@ export class CorretorManterComponent implements OnInit {
 
   constructor(private corretorManterService: CorretorManterService) { }
   servicos: Array<any>;
-  retornoSalvar: {};
+  retornoSalvar: any;
   corretor: any;
   mostrarAlerta: any;
   ngOnInit() {
@@ -30,12 +30,8 @@ export class CorretorManterComponent implements OnInit {
 
       this.corretorManterService.save(this.corretor).subscribe(
         resposta =>{
-          if(resposta.status){
-            this.retornoSalvar = resposta.message;
-          }else{
-            let erro = {msg: "Ocorreu algum erro ao tentar salvar, verifique os campos informados!"}
-            this.retornoSalvar = erro.msg;
-          }
+          this.retornoSalvar = resposta;
+          
             console.log(resposta);
             this.mostrarAlerta = true;
             this.corretor = {}
