@@ -21,6 +21,9 @@ import { ClienteServicoComponent } from './clientes/cliente-servico/cliente-serv
 //CADASTRO
 import { CadastroComponent } from './cadastro/cadastro.component';
 
+//Login
+import { LoginComponent } from './login/login.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +35,7 @@ import { CadastroComponent } from './cadastro/cadastro.component';
     CorretorPerfilComponent,
     ClienteServicoComponent,
     CorretorServicoComponent,
+    LoginComponent,
 
 
   ],
@@ -74,7 +78,11 @@ import { CadastroComponent } from './cadastro/cadastro.component';
       {
           path: 'corretor-servicos',
           component: CorretorServicoComponent
-      }
+      },
+      {
+          path:  'auth',
+          component: LoginComponent
+      },
     ])
 
   ],

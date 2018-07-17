@@ -9,7 +9,24 @@
       <hr>
       <p>Corretor: <span>Renato Lopes</span></p>
       <p>Data: <span>10/12/2010</span></p>
-
+      <p>Avaliação do corretor</p>
+      <div class="btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary active">
+          <input type="checkbox"  autocomplete="off">1
+        </label>
+        <label class="btn btn-secondary active">
+          <input type="checkbox"  autocomplete="off">2
+        </label>
+        <label class="btn btn-secondary active">
+          <input type="checkbox"  autocomplete="off">3
+        </label>
+        <label class="btn btn-secondary active">
+          <input type="checkbox"  autocomplete="off">4
+        </label>
+        <label class="btn btn-secondary active">
+          <input type="checkbox"  autocomplete="off">5
+        </label>
+      </div>
     </div>
   </div>
 <h3>Em andamento</h3>
@@ -25,7 +42,29 @@
 
     </div>
     <div class="card-footer">
-        <button type="button" class="btn btn-small btn-danger" name="button">Cancelar</button>
+        <button data-toggle="modal"  data-target="#andamentoServico" type="button" class="btn btn-small btn-default" name="button">Acompanhar</button>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div  class="modal fade" id="andamentoServico" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Acompanhamento de serviço</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Corretor: <span>Romilson</span></p>
+          <p>Data: <span>22/01/2012</span></p>
+          <p>Serviços:</p>
+          <p> * Venda de imovel</p>
+          <p> * Troca de documentos</p>
+        <div class="modal-footer">
+        </div>
+      </div>
     </div>
   </div>
 </div>

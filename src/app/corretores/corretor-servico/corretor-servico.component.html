@@ -29,7 +29,7 @@
 
       </div>
       <div class="card-footer">
-          <button style="margin: 5px" type="button" class="btn btn-small btn-danger" name="button">Finalizar</button>
+          <button data-target="#andamentoServico" data-toggle="modal" style="margin: 5px" type="button" class="btn btn-small btn-default" name="button">Acompanhar</button>
       </div>
     </div>
   <h3>Concluídos</h3>
@@ -42,6 +42,52 @@
       <hr>
       <p>Nome: <span>Pedro Siqueira</span></p>
       <p>Data: <span>09/10/2017</span></p>
+      <p>Avaliação do cliente</p>
+      <div class="btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary active">
+          <input type="checkbox"  autocomplete="off">1
+        </label>
+        <label class="btn btn-secondary active">
+          <input type="checkbox"  autocomplete="off">2
+        </label>
+        <label class="btn btn-secondary active">
+          <input type="checkbox"  autocomplete="off">3
+        </label>
+        <label class="btn btn-secondary active">
+          <input type="checkbox"  autocomplete="off">4
+        </label>
+        <label class="btn btn-secondary active">
+          <input type="checkbox"  autocomplete="off">5
+        </label>
+      </div>
     </div>
   </div>
+
+    <!-- Modal -->
+    <div  class="modal fade" id="andamentoServico" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Acompanhamento de serviço</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Corretor: <span>Romilson</span></p>
+            <p>Data: <span>22/01/2012</span></p>
+            <p>Serviços:</p>
+            <p> * Venda de imovel</p>
+            <p> * Troca de documentos</p>
+          <div class="modal-footer">
+          </div>
+        </div>
+        <div class="card-footer">
+            <button type="button" class="btn btn-success" name="button">Concluir</button>
+            <button type="button" name="button" class="btn btn-danger">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
